@@ -1,48 +1,93 @@
 # CAB-BOOKING
 
-## Overview
-**CAB-BOOKING** is a comprehensive cab booking system designed to streamline the process of booking rides. This project demonstrates a combination of web development skills and integrates payment processing and email notifications to provide a complete solution for users booking cabs.
+This repository contains the source code for a Cab Booking System. It includes both user and admin interfaces to manage cab bookings efficiently. The system is built using Node.js, Express, MySQL, and other modern web technologies.
 
-## Features
-- **User Booking**: Allows users to book cabs through a user-friendly interface.
-- **Payment Processing**: Utilizes [Razorpay](https://razorpay.com) for secure payment transactions.
-- **Email Notifications**: Sends booking confirmations and updates via email using [NodeMailer](https://nodemailer.com/).
-- **Responsive Design**: Built with HTML, CSS, Bootstrap, and JavaScript to ensure a seamless experience across devices.
-- **Database Integration**: Manages bookings and user information using MySQL.
+## Table of Contents
 
-## Technologies Used
-- **Frontend**: HTML, CSS, Bootstrap, JavaScript
-- **Backend**: Node.js, Express
-- **Database**: MySQL
-- **Payment Gateway**: Razorpay
-- **Email Service**: NodeMailer
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Features](#features)
+- [Folder Structure](#folder-structure)
+- [API Endpoints](#api-endpoints)
+- [Dependencies](#dependencies)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Navnoorsinghmahal/CAB-BOOKING.git
-# CAB-BOOKING
+1. **Clone the repository:**
+    ```sh
+    git clone https://github.com/Navnoorsinghmahal/CAB-BOOKING.git
+    cd CAB-BOOKING
+    ```
 
-## Overview
-**CAB-BOOKING** is a comprehensive cab booking system designed to streamline the process of booking rides. This project demonstrates a combination of web development skills and integrates payment processing and email notifications to provide a complete solution for users booking cabs.
+2. **Install dependencies:**
+    ```sh
+    npm install
+    ```
+
+3. **Set up the database:**
+    - Create a MySQL database.
+    - Import the provided SQL file (`database/schema.sql`) to set up the database schema.
+
+4. **Configure environment variables:**
+    Create a `.env` file in the root directory and add the following environment variables:
+    ```env
+    DB_HOST=your_database_host
+    DB_USER=your_database_user
+    DB_PASSWORD=your_database_password
+    DB_NAME=your_database_name
+    DB_SECRET=your_secret_key
+    RAZORPAY_KEY_ID=your_razorpay_key_id
+    RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+    ```
+
+## Configuration
+
+- Ensure that your MySQL server is running and accessible.
+- Configure your Razorpay credentials in the `.env` file for payment processing.
+- Configure your mail service credentials in the `.env` file for the NodeMailer setup.
+
+## Usage
+
+1. **Start the server:**
+    ```sh
+    npm start
+    ```
+
+2. **Access the application:**
+    - User Interface: [http://localhost:4500](http://localhost:4500)
+    - Admin Interface: [http://localhost:4500/admin](http://localhost:4500/admin)
 
 ## Features
-- **User Booking**: Allows users to book cabs through a user-friendly interface.
-- **Payment Processing**: Utilizes [Razorpay](https://razorpay.com) for secure payment transactions.
-- **Email Notifications**: Sends booking confirmations and updates via email using [NodeMailer](https://nodemailer.com/).
-- **Responsive Design**: Built with HTML, CSS, Bootstrap, and JavaScript to ensure a seamless experience across devices.
-- **Database Integration**: Manages bookings and user information using MySQL.
 
-## Technologies Used
-- **Frontend**: HTML, CSS, Bootstrap, JavaScript
-- **Backend**: Node.js, Express
-- **Database**: MySQL
-- **Payment Gateway**: Razorpay
-- **Email Service**: NodeMailer
+- User Authentication (Signup, Login, Logout)
+- Password Management (Change Password, Forgot Password)
+- Booking Management (Book a Taxi, View Bookings)
+- Driver Availability Check
+- Email Notifications via NodeMailer
+- Payment Processing via Razorpay
+- User Dashboard
+- Admin Dashboard
 
-## Installation
+## Folder Structure
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Navnoorsinghmahal/CAB-BOOKING.git
+```bash
+CAB-BOOKING/
+├── public/                 # Static files (CSS, JS, images)
+├── routes/                 # Route definitions
+│   ├── index.js            # User routes
+│   └── admin.js            # Admin routes
+├── views/                  # Template files
+│   ├── user/               # User templates
+│   └── admin/              # Admin templates
+├── dbconnection/           # Database connection setup
+│   └── connection.js
+├── controllers/            # Controller files
+│   ├── indexController.js  # User controller
+│   └── adminController.js  # Admin controller
+├── middleware/             # Middleware functions
+├── .env                    # Environment variables
+├── app.js                  # Main application file
+└── package.json            # Project metadata and dependencies

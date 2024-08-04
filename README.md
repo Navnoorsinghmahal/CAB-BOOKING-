@@ -32,12 +32,13 @@ This repository contains the source code for a Cab Booking System. It includes b
 4. **Configure environment variables:**
     Create a `.env` file in the root directory and add the following environment variables:
     ```env
-    DB_HOST=your_database_host
-    DB_USER=your_database_user
-    DB_PASSWORD=your_database_password
-    DB_NAME=your_database_name
-    DB_SECRET=your_secret_key
-    
+    DB_HOST=localhost
+    DB_USER=root
+    DB_PASSWORD=System123@
+    DB_DATABASE=final_project
+    DB_SECRET=noor_mahal
+    DB_USER_TOKEN=ggg
+    DB_PASS=flgj qmhn ajdm lqgh
     ```
 
 ## Configuration
@@ -88,3 +89,76 @@ CAB-BOOKING/
 ├── .env                    # Environment variables
 ├── app.js                  # Main application file
 └── package.json            # Project metadata and dependencies
+
+
+## API Endpoints
+
+### User Endpoints
+
+- **GET /** - User homepage
+- **GET /signin** - User signin page
+- **GET /signup** - User signup page
+- **POST /signupAction** - Handle user signup
+- **POST /user-login** - Handle user login
+- **GET /user-login** - User login page
+- **GET /user-dashboard** - User dashboard
+- **GET /home** - Home page
+- **GET /book_taxi** - Book a taxi page
+- **GET /bookDrivers** - Book drivers page
+- **GET /all_information/:id** - View booking information
+- **GET /change_password_user** - Change password page
+- **POST /change_password_user1** - Handle password change
+- **GET /forgot_password_user** - Forgot password page
+- **POST /forgot_password_user_form** - Handle forgot password
+- **POST /verify_otp_user** - Verify OTP
+- **GET /user-change_password/:email** - Change password by email
+- **POST /change_password_user2/:email** - Handle password change by email
+- **POST /check_availability** - Check driver availability
+- **POST /bookTaxi1** - Handle taxi booking
+- **POST /information/:id** - Submit booking information
+- **POST /user_information** - Submit user information
+- **POST /booking** - Handle booking
+- **GET /view_bookings** - View user bookings
+- **POST /viewBookings** - View user bookings
+- **GET /contact** - Contact page
+- **GET /contact2** - Contact page
+- **POST /contactinfo** - Handle contact form submission
+- **POST /newsletter** - Handle newsletter signup
+
+### Admin Endpoints
+
+- **GET /admin** - Admin homepage
+- **GET /home3** - Admin home 3
+- **GET /home4** - Admin home 4
+- **POST /admin-login** - Handle admin login
+- **GET /admin-dashboard** - Admin dashboard
+- **GET /Logout** - Admin logout
+- **GET /change_password** - Change password page
+- **POST /change_password_form** - Handle password change
+- **GET /forgot_password** - Forgot password page
+- **POST /forgot_password_form** - Handle forgot password
+- **POST /verify_otp** - Verify OTP
+- **GET /admin-change_password/:email** - Change password by email
+- **POST /change_password_form2/:email** - Handle password change by email
+- **GET /driver_information** - Admin driver information
+- **POST /Driver_form** - Handle driver form submission
+- **GET /View_information** - View driver information
+- **GET /viewDrivers** - View all drivers
+- **GET /viewDriverDetails/:id** - View driver details
+- **POST /updateInformation** - Update driver information
+- **GET /delete-information/:id** - Delete driver information
+
+## Dependencies
+
+- `bootstrap-icons`
+- `cookie-parser`
+- `dotenv`
+- `ejs`
+- `express`
+- `express-fileupload`
+- `jsonwebtoken`
+- `mysql`
+- `nodemailer`
+- `nodemon`
+
+

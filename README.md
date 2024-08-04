@@ -11,8 +11,6 @@ This repository contains the source code for a Cab Booking System. It includes b
 - [Folder Structure](#folder-structure)
 - [API Endpoints](#api-endpoints)
 - [Dependencies](#dependencies)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
@@ -39,8 +37,7 @@ This repository contains the source code for a Cab Booking System. It includes b
     DB_PASSWORD=your_database_password
     DB_NAME=your_database_name
     DB_SECRET=your_secret_key
-    RAZORPAY_KEY_ID=your_razorpay_key_id
-    RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+    
     ```
 
 ## Configuration

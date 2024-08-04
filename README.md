@@ -1,72 +1,90 @@
-#CAB-BOOKING
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
 
+\title{CAB-BOOKING}
+\author{Navnoorsinghmahal}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
 This repository contains the source code for a Cab Booking System. It includes both user and admin interfaces to manage cab bookings efficiently. The system is built using Node.js, Express, MySQL, and other modern web technologies.
 
-Table of Contents
+\section{Installation}
+\begin{enumerate}
+    \item \textbf{Clone the repository:}
+    \begin{lstlisting}[language=bash]
+    git clone https://github.com/Navnoorsinghmahal/CAB-BOOKING.git
+    cd CAB-BOOKING
+    \end{lstlisting}
+    
+    \item \textbf{Install dependencies:}
+    \begin{lstlisting}[language=bash]
+    npm install
+    \end{lstlisting}
+    
+    \item \textbf{Set up the database:}
+    \begin{itemize}
+        \item Create a MySQL database.
+        \item Import the provided SQL file (\texttt{database/schema.sql}) to set up the database schema.
+    \end{itemize}
+    
+    \item \textbf{Configure environment variables:}
+    Create a \texttt{.env} file in the root directory and add the following environment variables:
+    \begin{lstlisting}
+    DB_HOST=your_database_host
+    DB_USER=your_database_user
+    DB_PASSWORD=your_database_password
+    DB_NAME=your_database_name
+    DB_SECRET=your_secret_key
+    RAZORPAY_KEY_ID=your_razorpay_key_id
+    RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+    \end{lstlisting}
+\end{enumerate}
 
-Installation
-Configuration
-Usage
-Features
-Folder Structure
-API Endpoints
-Dependencies
-Contributing
-License
-Installation
+\section{Configuration}
+\begin{itemize}
+    \item Ensure that your MySQL server is running and accessible.
+    \item Configure your Razorpay credentials in the \texttt{.env} file for payment processing.
+    \item Configure your mail service credentials in the \texttt{.env} file for the nodemailer setup.
+\end{itemize}
 
-Clone the repository:
-sh
-Copy code
-git clone https://github.com/Navnoorsinghmahal/CAB-BOOKING.git
-cd CAB-BOOKING
-Install dependencies:
-sh
-Copy code
-npm install
-Set up the database:
-Create a MySQL database.
-Import the provided SQL file (database/schema.sql) to set up the database schema.
-Configure environment variables:
-Create a .env file in the root directory and add the following environment variables:
+\section{Usage}
+\begin{enumerate}
+    \item \textbf{Start the server:}
+    \begin{lstlisting}[language=bash]
+    npm start
+    \end{lstlisting}
+    
+    \item \textbf{Access the application:}
+    \begin{itemize}
+        \item User Interface: \url{http://localhost:4500}
+        \item Admin Interface: \url{http://localhost:4500/admin}
+    \end{itemize}
+\end{enumerate}
 
-env
-Copy code
-DB_HOST=your_database_host
-DB_USER=your_database_user
-DB_PASSWORD=your_database_password
-DB_NAME=your_database_name
-DB_SECRET=your_secret_key
-RAZORPAY_KEY_ID=your_razorpay_key_id
-RAZORPAY_KEY_SECRET=your_razorpay_key_secret
-Configuration
+\section{Features}
+\begin{itemize}
+    \item User Authentication (Signup, Login, Logout)
+    \item Password Management (Change Password, Forgot Password)
+    \item Booking Management (Book a Taxi, View Bookings)
+    \item Driver Availability Check
+    \item Email Notifications via NodeMailer
+    \item Payment Processing via Razorpay
+    \item User Dashboard
+    \item Admin Dashboard
+\end{itemize}
 
-Ensure that your MySQL server is running and accessible.
-Configure your Razorpay credentials in the .env file for payment processing.
-Configure your mail service credentials in the .env file for the nodemailer setup.
-Usage
-
-Start the server:
-sh
-Copy code
-npm start
-Access the application:
-User Interface: http://localhost:4500
-Admin Interface: http://localhost:4500/admin
-Features
-
-User Authentication (Signup, Login, Logout)
-Password Management (Change Password, Forgot Password)
-Booking Management (Book a Taxi, View Bookings)
-Driver Availability Check
-Email Notifications via NodeMailer
-Payment Processing via Razorpay
-User Dashboard
-Admin Dashboard
-Folder Structure
-
-bash
-Copy code
+\section{Folder Structure}
+\begin{verbatim}
 CAB-BOOKING/
 ├── public/                 # Static files (CSS, JS, images)
 ├── routes/                 # Route definitions
@@ -84,68 +102,60 @@ CAB-BOOKING/
 ├── .env                    # Environment variables
 ├── app.js                  # Main application file
 └── package.json            # Project metadata and dependencies
-API Endpoints
+\end{verbatim}
 
-User Endpoints
-GET / - User homepage
-GET /signin - User signin page
-GET /signup - User signup page
-POST /signupAction - Handle user signup
-POST /user-login - Handle user login
-GET /user-login - User login page
-GET /user-dashboard - User dashboard
-GET /home - Home page
-GET /book_taxi - Book a taxi page
-GET /bookDrivers - Book drivers page
-GET /all_information/:id - View booking information
-GET /change_password_user - Change password page
-POST /change_password_user1 - Handle password change
-GET /forgot_password_user - Forgot password page
-POST /forgot_password_user_form - Handle forgot password
-POST /verify_otp_user - Verify OTP
-GET /user-change_password/:email - Change password by email
-POST /change_password_user2/:email - Handle password change by email
-POST /check_availability - Check driver availability
-POST /bookTaxi1 - Handle taxi booking
-POST /information/:id - Submit booking information
-POST /user_information - Submit user information
-POST /booking - Handle booking
-GET /view_bookings - View user bookings
-POST /viewBookings - View user bookings
-GET /contact - Contact page
-GET /contact2 - Contact page
-POST /contactinfo - Handle contact form submission
-POST /newsletter - Handle newsletter signup
-Admin Endpoints
-GET /admin - Admin homepage
-GET /home3 - Admin home 3
-GET /home4 - Admin home 4
-POST /admin-login - Handle admin login
-GET /admin-dashboard - Admin dashboard
-GET /Logout - Admin logout
-GET /change_password - Change password page
-POST /change_password_form - Handle password change
-GET /forgot_password - Forgot password page
-POST /forgot_password_form - Handle forgot password
-POST /verify_otp - Verify OTP
-GET /admin-change_password/:email - Change password by email
-POST /change_password_form2/:email - Handle password change by email
-GET /driver_information - Admin driver information
-POST /Driver_form - Handle driver form submission
-GET /View_information - View driver information
-GET /viewDrivers - View all drivers
-GET /viewDriverDetails/:id - View driver details
-POST /updateInformation - Update driver information
-GET /delete-information/:id - Delete driver information
-Dependencies
+\section{API Endpoints}
+\subsection{User Endpoints}
+\begin{itemize}
+    \item \textbf{GET} \texttt{/} - User homepage
+    \item \textbf{GET} \texttt{/signin} - User signin page
+    \item \textbf{GET} \texttt{/signup} - User signup page
+    \item \textbf{POST} \texttt{/signupAction} - Handle user signup
+    \item \textbf{POST} \texttt{/user-login} - Handle user login
+    \item \textbf{GET} \texttt{/user-login} - User login page
+    \item \textbf{GET} \texttt{/user-dashboard} - User dashboard
+    \item \textbf{GET} \texttt{/home} - Home page
+    \item \textbf{GET} \texttt{/book\_taxi} - Book a taxi page
+    \item \textbf{GET} \texttt{/bookDrivers} - Book drivers page
+    \item \textbf{GET} \texttt{/all\_information/:id} - View booking information
+    \item \textbf{GET} \texttt{/change\_password\_user} - Change password page
+    \item \textbf{POST} \texttt{/change\_password\_user1} - Handle password change
+    \item \textbf{GET} \texttt{/forgot\_password\_user} - Forgot password page
+    \item \textbf{POST} \texttt{/forgot\_password\_user\_form} - Handle forgot password
+    \item \textbf{POST} \texttt{/verify\_otp\_user} - Verify OTP
+    \item \textbf{GET} \texttt{/user-change\_password/:email} - Change password by email
+    \item \textbf{POST} \texttt{/change\_password\_user2/:email} - Handle password change by email
+    \item \textbf{POST} \texttt{/check\_availability} - Check driver availability
+    \item \textbf{POST} \texttt{/bookTaxi1} - Handle taxi booking
+    \item \textbf{POST} \texttt{/information/:id} - Submit booking information
+    \item \textbf{POST} \texttt{/user\_information} - Submit user information
+    \item \textbf{POST} \texttt{/booking} - Handle booking
+    \item \textbf{GET} \texttt{/view\_bookings} - View user bookings
+    \item \textbf{POST} \texttt{/viewBookings} - View user bookings
+    \item \textbf{GET} \texttt{/contact} - Contact page
+    \item \textbf{GET} \texttt{/contact2} - Contact page
+    \item \textbf{POST} \texttt{/contactinfo} - Handle contact form submission
+    \item \textbf{POST} \texttt{/newsletter} - Handle newsletter signup
+\end{itemize}
 
-bootstrap-icons
-cookie-parser
-dotenv
-ejs
-express
-express-fileupload
-jsonwebtoken
-mysql
-nodemailer
-nodemon
+\subsection{Admin Endpoints}
+\begin{itemize}
+    \item \textbf{GET} \texttt{/admin} - Admin homepage
+    \item \textbf{GET} \texttt{/home3} - Admin home 3
+    \item \textbf{GET} \texttt{/home4} - Admin home 4
+    \item \textbf{POST} \texttt{/admin-login} - Handle admin login
+    \item \textbf{GET} \texttt{/admin-dashboard} - Admin dashboard
+    \item \textbf{GET} \texttt{/Logout} - Admin logout
+    \item \textbf{GET} \texttt{/change\_password} - Change password page
+    \item \textbf{POST} \texttt{/change\_password\_form} - Handle password change
+    \item \textbf{GET} \texttt{/forgot\_password} - Forgot password page
+    \item \textbf{POST} \texttt{/forgot\_password\_form} - Handle forgot password
+    \item \textbf{POST} \texttt{/verify\_otp} - Verify OTP
+    \item \textbf{GET} \texttt{/admin-change\_password/:email} - Change password by email
+    \item \textbf{POST} \texttt{/change\_password\_form2/:email} - Handle password change by email
+    \item \textbf{GET} \texttt{/driver\_information} - Admin driver information
+    \item \textbf{POST} \texttt{/Driver\_form} - Handle driver form submission
+    \item \textbf{GET} \texttt{/View\_information} - View driver information
+    \item \textbf{GET} \texttt{/viewDrivers} - View all drivers
+    \item \textbf{GET} \texttt{/viewDriverDetails/:id} - View driver details
+    \item \textbf{POST} \texttt{/updateInformation}

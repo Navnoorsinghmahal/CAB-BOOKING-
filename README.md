@@ -34,11 +34,11 @@ This repository contains the source code for a Cab Booking System. It includes b
     ```env
     DB_HOST=localhost
     DB_USER=root
-    DB_PASSWORD=System123@
-    DB_DATABASE=final_project
-    DB_SECRET=noor_mahal
-    DB_USER_TOKEN=ggg
-    DB_PASS=flgj qmhn ajdm lqgh
+    DB_PASSWORD=YOUR_PASSWORD
+    DB_DATABASE=DATABASE_NAME
+    DB_SECRET=YOUR_SECRET
+    DB_USER_TOKEN=YOUR_USER_TOKEN
+    DB_PASS=YOUR_EMAIL_PASS_KEY
     ```
 
 ## Configuration

@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <%-include('../pages/headerFiles')%>
+
+</head>
+
+<style>
+    .abc{
+        width: 414px;
+        height: 233px;
+    }
+</style>
+<body onload="viewDrivers()">
+
+<%-include('../pages/header_admin_signin')%>
+
+<div class="slider-section">
+    <div class="main-slider-2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="slider-img"><img src="assets/img/slider-bg.jpg" alt="img" class="kenburns" style="animation-duration: 12000ms; "></div>
+                <div class="slider-content-wrap d-flex align-items-center text-left">
+                    <div class="container">
+                        <div class="slider-content text-center pb-60">
+                            <div class="slider-caption medium">
+                                <div class="inner-layer">
+                                    <div data-animation="fade-in-bottom" data-delay="0.3s">Travel securely with us!</div>
+                                </div>
+                            </div>
+                            <div class="slider-caption big">
+                                <div class="inner-layer">
+                                    <div data-animation="fade-in-bottom" data-delay="0.5s">Book your taxi from <br>anywhare today!</div>
+                                </div>
+                            </div>
+                            <div class="slider-caption small">
+                                <div class="inner-layer">
+                                    <div data-animation="fade-in-bottom" data-delay="0.7s" data-duration="1s">Everything your taxi business needs is already here! <br>Ridek made for taxi service companies!</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="slider-img"><img src="assets/img/slider-bg.jpg" alt="img" class="kenburns" style="animation-duration: 12000ms; "></div>
+                <div class="slider-content-wrap d-flex align-items-center text-left">
+                    <div class="container">
+                        <div class="slider-content text-center pb-60">
+                            <div class="slider-caption medium">
+                                <div class="inner-layer">
+                                    <div data-animation="fade-in-bottom" data-delay="0.3s">Travel securely with us!</div>
+                                </div>
+                            </div>
+                            <div class="slider-caption big">
+                                <div class="inner-layer">
+                                    <div data-animation="fade-in-bottom" data-delay="0.5s">Book your taxi from <br>anywhare today!</div>
+                                </div>
+                            </div>
+                            <div class="slider-caption small">
+                                <div class="inner-layer">
+                                    <div data-animation="fade-in-bottom" data-delay="0.7s" data-duration="1s">Everything your taxi business needs is already here! <br>Ridek made for taxi service companies!</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm"></form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-5">
+    <h2>View Cab Drivers</h2>
+    <!-- Container for driver cards -->
+    <div class="row" id="dataResult"></div>
+</div>
+
+<!-- View Information Modal-->
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="infoModalLabel">Driver Information</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalContent">
+                <!-- Content will be dynamically injected here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="about-section padding">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="about-img">
+                    <img class="about-img1 wow fade-in-left" data-wow-delay="200ms" src="assets/img/about-1.png" alt="img">
+                    <img class="about-img2 wow fade-in-bottom" data-wow-delay="400ms" src="assets/img/about-2.png" alt="img">
+                    <figure class="round-text"><img src="assets/img/experience-text-round.png" alt="img"></figure>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="section-heading mb-40 wow fade-in-right" data-wow-delay="200ms">
+                    <h4><span></span>About Our Company</h4>
+                    <h2>Feel the difference and Relaxation with Ridek Taxi Company!</h2>
+                    <p>We successfully cope with tasks of varying complexity, provide long-term guarantees and
+                        regularly master new technologies. Our portfolio includes dozens of successfully completed
+                        projects of houses of different storeys, with high–quality finishes and good repairs. Book
+                        your taxi from anywhare today!</p>
+                </div>
+                <!--/.section-heading-->
+                <ul class="about-info wow fade-in-right" data-wow-delay="400ms">
+                    <li>
+                        <img class="owner-thumb" src="assets/img/navnoor3.png" alt="thumb">
+                        <div class="owner">
+                            <h4>Founder - CEO</h4>
+                            <img class="signature" src="assets/img/signature.png" alt="signature">
+                        </div>
+                    </li>
+                    <li>
+                        <h2><span>Call For Taxi</span><a href="tel:5267214392">5267-214-392</a></h2>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonial-section bd-bottom bg-grey">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="section-heading mb-10">
+                    <h4><span></span>Clients Testimonial</h4>
+                    <h2>Ridek Passenger Reviews...</h2>
+                    <p>We successfully cope with tasks of varying complexity, provide long-term guarantees and regularly master technologies.</p>
+                </div>
+                <div class="swiper-outside testi-pagination">
+                    <div class="testimonial-carousel">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="testi-item">
+                                    <div class="quote-icon"><i class="las la-quote-right"></i></div>
+                                    <p>Good to have transportation available in places and times it is otherwise hard to find, but the app has always been a bit difficult to use especially how it works or doesnt with large font phone settings.</p>
+                                    <div class="testi-author">
+                                        <div class="author-thumb"><img src="assets/img/comment-1.png" alt="author"></div>
+                                        <div class="author-info">
+                                            <h3>Eredrik Johanson <span>Financial .INC</span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testi-item">
+                                    <div class="quote-icon"><i class="las la-quote-right"></i></div>
+                                    <p>Good to have transportation available in places and times it is otherwise hard to find, but the app has always been a bit difficult to use especially how it works or doesnt with large font phone settings.</p>
+                                    <div class="testi-author">
+                                        <div class="author-thumb"><img src="assets/img/comment-1.png" alt="author"></div>
+                                        <div class="author-info">
+                                            <h3>Eredrik Johanson <span>Financial .INC</span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testi-item">
+                                    <div class="quote-icon"><i class="las la-quote-right"></i></div>
+                                    <p>Good to have transportation available in places and times it is otherwise hard to find, but the app has always been a bit difficult to use especially how it works or doesnt with large font phone settings.</p>
+                                    <div class="testi-author">
+                                        <div class="author-thumb"><img src="assets/img/comment-1.png" alt="author"></div>
+                                        <div class="author-info">
+                                            <h3>Eredrik Johanson <span>Financial .INC</span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div><!-- Carousel Dots -->
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="feature-wrap">
+                    <div class="section-heading mb-30 wow fade-in-right" data-wow-delay="200ms">
+                        <h4 class="white"><span></span>Why Choose Us!</h4>
+                        <h2 class="white">Why Ride with Ridek?</h2>
+                        <p class="white">We successfully cope with tasks of varying complexity, provide long-term
+                            guarantees and regularly master technologies.</p>
+                    </div>
+                    <!--/.section-heading-->
+                    <ul class="ridek-features">
+                        <li class="wow fade-in-right" data-wow-delay="300ms">
+                            <div class="feature-icon">
+                                <i class="las la-gem"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Safe Guarantee</h3>
+                                <p>We successfully cope with tasks of <br> varying complexity!</p>
+                            </div>
+                        </li>
+                        <li class="wow fade-in-right" data-wow-delay="400ms">
+                            <div class="feature-icon">
+                                <i class="las la-taxi"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Fast Pickups</h3>
+                                <p>We successfully cope with tasks of <br> varying complexity!</p>
+                            </div>
+                        </li>
+                        <li class="wow fade-in-right" data-wow-delay="500ms">
+                            <div class="feature-icon">
+                                <i class="las la-tachometer-alt"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Quick Ride</h3>
+                                <p>We successfully cope with tasks of <br> varying complexity!</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<%-include('../pages/footer')%>
+
+<%-include('../pages/scripts')%>
+
+<script>
+    // Function to fetch and display driver cards
+    let viewDrivers = () => {
+        fetch("/viewDrivers")
+            .then(res => res.json())
+            .then(res => {
+                if (res.error === false) {
+                    let data = res.records;
+                    let cards = '';
+                    if (data.length > 0) {
+                        data.forEach(driver => {
+                            cards += `
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                        <img src="/${driver.photo}" class="card-img-top abc" alt="${driver.name}" >
+                                        <div class="card-body">
+                                            <h5 class="card-title">${driver.name}</h5>
+                                            <p class="card-text"><strong>Registration Number:</strong> ${driver.registeredNumber}</p>
+                                            <p class="card-text"><strong>Brand:</strong> ${driver.brand}</p>
+                                            <p class="card-text"><strong>Type:</strong> ${driver.type}</p>
+                                            <button type="button" class="btn btn-primary" onclick="view_information(${driver.user_id})">More Information</button>
+                                            <button type="button" class="btn btn-primary" onclick="edit_information(${driver.user_id})" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button>
+                                            <button type="button" class="btn btn-danger" onclick="delete_information(${driver.user_id})"><i class="fas fa-trash"></i></button>
+
+                                            </div>
+                                    </div>
+                                </div>`;
+                        });
+                    } else {
+                        cards = `<div class="alert alert-danger">No data found</div>`;
+                    }
+                    document.getElementById("dataResult").innerHTML = cards;
+                }
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    }
+
+    // Function to fetch and display driver details in the modal
+    const view_information = (driverId) => {
+        fetch(`/viewDriverDetails/${driverId}`)
+            .then(res => res.json())
+            .then(res => {
+                if (res.error === false) {
+                    let data = res.records[0];
+                    let content = '';
+                    if (data) {
+                        content = `
+                            <div class="card mb-3">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src="/${data.photo}" class="card-img" alt="${data.name}">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${data.name}</h5>
+                                            <p class="card-text"><strong>Registration Number:</strong> ${data.registeredNumber}</p>
+                                            <p class="card-text"><strong>Brand:</strong> ${data.brand}</p>
+                                            <p class="card-text"><strong>Type:</strong> ${data.type}</p>
+                                            <p class="card-text"><strong>Description:</strong> ${data.description}</p>
+                                            <p class="card-text"><strong>Fuel Type:</strong> ${data.fuelType}</p>
+                                            <p class="card-text"><strong>Rent with Driver:</strong> ${data.rentWithDriver}</p>
+                                            <p class="card-text"><strong>Rent without Driver:</strong> ${data.rentWithoutDriver}</p>
+                                            <p class="card-text"><strong>Colour:</strong> ${data.colour}</p>
+                                            <p class="card-text"><strong>Model Year:</strong> ${data.modelYear}</p>
+                                            <p class="card-text"><strong>AC:</strong> ${data.ac}</p>
+                                            <p class="card-text"><strong>Seater:</strong> ${data.seater}</p>
+                                            <p class="card-text"><strong>Transmission:</strong> ${data.transmission}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
+                    } else {
+                        content = `<div class="alert alert-danger">No data found</div>`;
+                    }
+                    document.getElementById("modalContent").innerHTML = content;
+                    var infoModal = new bootstrap.Modal(document.getElementById('infoModal'));
+                    infoModal.show();
+                }
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    }
+
+    // Function to edit driver details
+    const edit_information = (driverId) => {
+        fetch(`/viewDriverDetails/${driverId}`)
+            .then(res => res.json())
+            .then(res => {
+                if (res.error === false) {
+                    let data = res.records[0];
+                    let formContent = '';
+                    if (data) {
+                        formContent = `
+
+
+                            <div class="form-group">
+                                <label for="editRegisteredNumber">Registration Number</label>
+                                <input type="text" class="form-control" id="editRegisteredNumber" name="editRegisteredNumber" value="${data.registeredNumber}" readonly required class="form-control">
+                            </div>
+                              <div class="form-group">
+                                <label for="editName">Name</label>
+                                <input type="text" id="editName" name="editName" value="${data.name}" required class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="editBrand">Brand</label>
+                                <input type="text" id="editBrand" name="editBrand" value="${data.brand}" required class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="editType">Type</label>
+                                <select id="editType" name="editType" required class="form-control">
+                                    <option value="">Select</option>
+                                    <option value="Sedan" ${data.type === "Sedan" ? "selected" : ""}>Sedan</option>
+                                    <option value="SUV" ${data.type === "SUV" ? "selected" : ""}>SUV</option>
+                                    <option value="Hatchback" ${data.type === "Hatchback" ? "selected" : ""}>Hatchback</option>
+                                    <option value="Convertible" ${data.type === "Convertible" ? "selected" : ""}>Convertible</option>
+                                    <option value="Coupe" ${data.type === "Coupe" ? "selected" : ""}>Coupe</option>
+                                    <option value="Wagon" ${data.type === "Wagon" ? "selected" : ""}>Wagon</option>
+                                    <option value="Van" ${data.type === "Van" ? "selected" : ""}>Van</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="editDescription">Description</label>
+                                <textarea id="editDescription" name="editDescription" required class="form-control">${data.description}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="editFuelType">Fuel Type</label>
+                                <select id="editFuelType" name="editFuelType" required class="form-control">
+                                    <option value="">Select</option>
+                                    <option value="Petrol" ${data.fuelType === "Petrol" ? "selected" : ""}>Petrol</option>
+                                    <option value="Diesel" ${data.fuelType === "Diesel" ? "selected" : ""}>Diesel</option>
+                                    <option value="Electric" ${data.fuelType === "Electric" ? "selected" : ""}>Electric</option>
+                                    <option value="CNG" ${data.fuelType === "CNG" ? "selected" : ""}>CNG</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="editRentWithDriver">Rent with Driver</label>
+                                <input type="number" id="editRentWithDriver" name="editRentWithDriver" value="${data.rentWithDriver}" required class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="editRentWithoutDriver">Rent without Driver</label>
+                                <input type="number" id="editRentWithoutDriver" name="editRentWithoutDriver" value="${data.rentWithoutDriver}" required class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="editColour">Colour</label>
+                                <input type="text" id="editColour" name="editColour" value="${data.colour}" required class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="editModelYear">Model Year</label>
+                                <input type="number" id="editModelYear" name="editModelYear" value="${data.modelYear}" required class="form-control" min="2000" max="2024"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="editAC">With AC/Without AC</label>
+                                <select id="editAC" name="editAC" required class="form-control">
+                                    <option value="">Select</option>
+                                    <option value="With AC" ${data.ac === "With AC" ? "selected" : ""}>With AC</option>
+                                    <option value="Without AC" ${data.ac === "Without AC" ? "selected" : ""}>Without AC</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="editSeater">Seater</label>
+                                <input type="number" id="editSeater" name="editSeater" value="${data.seater}" required class="form-control" max="20"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="editTransmission">Transmission</label>
+                                <select id="editTransmission" name="editTransmission" required class="form-control">
+                                    <option value="">Select</option>
+                                    <option value="Automatic" ${data.transmission === "Automatic" ? "selected" : ""}>Automatic</option>
+                                    <option value="Manual" ${data.transmission === "Manual" ? "selected" : ""}>Manual</option>
+                                </select>
+                            </div>`;
+                    }
+                    document.getElementById("editForm").innerHTML = formContent;
+                    var editModal = new bootstrap.Modal(document.getElementById('editModal'));
+                    editModal.show()
+
+                }
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    }
+
+
+    const saveChanges = () => {
+
+        let ele = document.getElementById("editForm").elements;
+        let fd = new FormData();
+
+        for (let i = 0; i < ele.length; i++) {
+                    fd.append(ele[i].name, ele[i].value)
+
+
+        }
+        fetch("/updateInformation", {
+            method: "post", body: fd
+        }).then(res => res.json()).then(res => {
+            if (res.error === false) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Driver information updated successfully'
+                }).then(()=>{
+                    console.log(("error"))
+
+
+                    var editModal = new bootstrap.Modal(document.getElementById('editModal'));
+                    editModal.hide()
+
+
+
+                })
+                viewDrivers();
+            }
+            else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Failed to update driver information'
+                });
+            }
+            // viewDrivers();
+
+        })
+
+
+            .catch(e => {
+                console.log(e);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Failed to update driver information'
+                });
+
+            })
+
+    }
+
+    const delete_information = (driverId) => {
+        console.log(driverId)
+
+        swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+            fetch(`/delete-information/${driverId}`)
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res);
+                    if (res.error === true) {
+                        swal.fire({
+                            icon: "error",
+                            title: res.message
+                        })
+                    } else {
+                        swal.fire({
+                            icon:"success",
+                            title:res.message,
+                            timer:1500
+
+                        })
+                        viewDrivers()
+
+                    }
+                })
+
+
+            }
+        });
+    }
+
+
+
+
+</script>
+</body>
+</html>

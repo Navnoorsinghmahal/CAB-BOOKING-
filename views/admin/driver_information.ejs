@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <%-include('../pages/headerFiles')%>
+
+</head>
+
+<body>
+
+<%-include('../pages/header_admin_signin')%>
+
+<div class="slider-section">
+    <div class="main-slider-2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="slider-img"><img src="assets/img/slider-bg.jpg" alt="img" class="kenburns" style="animation-duration: 12000ms; "></div>
+                <div class="slider-content-wrap d-flex align-items-center text-left">
+                    <div class="container">
+                        <div class="slider-content text-center pb-60">
+                            <div class="slider-caption medium">
+                                <div class="inner-layer">
+                                    <div data-animation="fade-in-bottom" data-delay="0.3s">Travel securely with us!</div>
+                                </div>
+                            </div>
+                            <div class="slider-caption big">
+                                <div class="inner-layer">
+                                    <div data-animation="fade-in-bottom" data-delay="0.5s">Book your taxi from <br>anywhare today!</div>
+                                </div>
+                            </div>
+                            <div class="slider-caption small">
+                                <div class="inner-layer">
+                                    <div data-animation="fade-in-bottom" data-delay="0.7s" data-duration="1s">Everything your taxi business needs is already here! <br>Ridek made for taxi service companies!</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="slider-img"><img src="assets/img/slider-bg.jpg" alt="img" class="kenburns" style="animation-duration: 12000ms; "></div>
+                <div class="slider-content-wrap d-flex align-items-center text-left">
+                    <div class="container">
+                        <div class="slider-content text-center pb-60">
+                            <div class="slider-caption medium">
+                                <div class="inner-layer">
+                                    <div data-animation="fade-in-bottom" data-delay="0.3s">Travel securely with us!</div>
+                                </div>
+                            </div>
+                            <div class="slider-caption big">
+                                <div class="inner-layer">
+                                    <div data-animation="fade-in-bottom" data-delay="0.5s">Book your taxi from <br>anywhare today!</div>
+                                </div>
+                            </div>
+                            <div class="slider-caption small">
+                                <div class="inner-layer">
+                                    <div data-animation="fade-in-bottom" data-delay="0.7s" data-duration="1s">Everything your taxi business needs is already here! <br>Ridek made for taxi service companies!</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<section class="booking-section-2">
+    <div class="container">
+        <div class="row booking-form-2 g-0">
+            <div class="col-md-4 d-none d-lg-block">
+                <div class="booking-car-wrap">
+                    <div class="booking-car wow fade-in-left" data-wow-delay="200ms"></div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="section-heading mb-30">
+                    <h4><span></span>Online Booking</h4>
+                    <h2 class="white">Book Your Taxi Ride</h2>
+                </div>
+                <form id="driver_information_form">
+                    <div class="booking-form">
+                        <div class="form-field">
+                            <i class="las la-user-tie"></i>
+                            <input type="text" id="registeredNumber" name="registeredNumber" class="form-control" placeholder="Registration Number" required>
+                        </div>
+                        <div class="form-field">
+                            <i class="las la-name"></i>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+                        </div>
+
+                        <div class="form-field">
+                            <i class="las la-envelope-open"></i>
+                            <input type="text" id="brand" name="brand" class="form-control" placeholder="Brand" required>
+                        </div>
+
+
+
+                        <div class="form-field ">
+                            <i class="las la-tags"></i>
+                            <select name="type" id="type" class="niceSelect" required>
+                                <option value = "">Select type</option>
+                                <option value="Sedan">Sedan</option>
+                                <option value="SUV">SUV</option>
+                                <option value="Hatchback">Hatchback</option>
+                                <option value="Convertible">Convertible</option>
+                                <option value="Coupe">Coupe</option>
+                                <option value="Wagon">Wagon</option>
+                                <option value="Van">Van</option>
+                            </select>
+                        </div>
+                        <div class="form-field ">
+                            <input type="text" id="description" name="description" required class="form-control" placeholder="Description"></inputtextarea>
+                        </div>
+
+                        <div class="form-field">
+                            <i class="las la-the-red-yeti"></i>
+                            <select name="fuelType" id="fuelType" class="niceSelect">
+                                <option value="">Fuel Type</option>
+                                <option value="Petrol">Petrol</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="Electric">Electric</option>
+                                <option value="CNG">CNG</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <i class="las la-money-bill"></i>
+                            <input type="number" id="rentWithDriver" name="rentWithDriver" class="form-control" placeholder="Rent With Driver" required>
+                        </div>
+
+                        <div class="form-field">
+                            <i class="las la-money-bill"></i>
+                            <input type="number" id="rentWithoutDriver" name="rentWithoutDriver" class="form-control" placeholder="Rent Without Driver" required>
+                        </div>
+
+                        <div class="form-field">
+                            <i class="las la-money-bill"></i>
+                            <input type="text" id="colour" name="colour" class="form-control" placeholder="Colour" required>
+                        </div>
+                        <div class="form-field">
+                            <i class="las la-map-marker"></i>
+                            <input type="number" id="modelYear" name="modelYear" class="form-control" placeholder="Model Year" required>
+                        </div>
+
+                        <div class="form-field">
+                            <i class="las la-user-friends"></i>
+                            <select name="ac" id="ac" class="niceSelect">
+                                <option value="">With/Without AC</option>
+                                <option value="With AC">With AC</option>
+                                <option value="Without AC">Without AC</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <i class="las la-map-marker"></i>
+                            <input type="text" id="seater" name="seater" class="form-control" placeholder="Number of Seaters" required>
+                        </div>
+
+                        <div class="form-field">
+                            <i class="las la-user-friends"></i>
+                            <select name="transmission" id="transmission" class="niceSelect">
+                                <option value="">Transmission</option>
+                                <option value="Automatic">Automatic</option>
+                                <option value="Manual">Manual</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <div class="form-group col-md-12">
+
+                                <input type="file" id="photo" name="photo" class="form-control" placeholder="Photo of the car" required>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <button class="default-btn" onclick="submitForm()">Submit</button>
+                        </div>
+                    </div>
+                    <div id="form-messages" class="alert" role="alert"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-section padding">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="about-img">
+                    <img class="about-img1 wow fade-in-left" data-wow-delay="200ms" src="assets/img/about-1.png" alt="img">
+                    <img class="about-img2 wow fade-in-bottom" data-wow-delay="400ms" src="assets/img/about-2.png" alt="img">
+                    <figure class="round-text"><img src="assets/img/experience-text-round.png" alt="img"></figure>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="section-heading mb-40 wow fade-in-right" data-wow-delay="200ms">
+                    <h4><span></span>About Our Company</h4>
+                    <h2>Feel the difference and Relaxation with Ridek Taxi Company!</h2>
+                    <p>We successfully cope with tasks of varying complexity, provide long-term guarantees and
+                        regularly master new technologies. Our portfolio includes dozens of successfully completed
+                        projects of houses of different storeys, with high–quality finishes and good repairs. Book
+                        your taxi from anywhare today!</p>
+                </div>
+                <!--/.section-heading-->
+                <ul class="about-info wow fade-in-right" data-wow-delay="400ms">
+                    <li>
+                        <img class="owner-thumb" src="assets/img/navnoor3.png" alt="thumb">
+                        <div class="owner">
+                            <h4>Founder - CEO</h4>
+                            <img class="signature" src="assets/img/signature.png" alt="signature">
+                        </div>
+                    </li>
+                    <li>
+                        <h2><span>Call For Taxi</span><a href="tel:5267214392">5267-214-392</a></h2>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonial-section bd-bottom bg-grey">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="section-heading mb-10">
+                    <h4><span></span>Clients Testimonial</h4>
+                    <h2>Ridek Passenger Reviews...</h2>
+                    <p>We successfully cope with tasks of varying complexity, provide long-term guarantees and regularly master technologies.</p>
+                </div>
+                <div class="swiper-outside testi-pagination">
+                    <div class="testimonial-carousel">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="testi-item">
+                                    <div class="quote-icon"><i class="las la-quote-right"></i></div>
+                                    <p>Good to have transportation available in places and times it is otherwise hard to find, but the app has always been a bit difficult to use especially how it works or doesnt with large font phone settings.</p>
+                                    <div class="testi-author">
+                                        <div class="author-thumb"><img src="assets/img/comment-1.png" alt="author"></div>
+                                        <div class="author-info">
+                                            <h3>Eredrik Johanson <span>Financial .INC</span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testi-item">
+                                    <div class="quote-icon"><i class="las la-quote-right"></i></div>
+                                    <p>Good to have transportation available in places and times it is otherwise hard to find, but the app has always been a bit difficult to use especially how it works or doesnt with large font phone settings.</p>
+                                    <div class="testi-author">
+                                        <div class="author-thumb"><img src="assets/img/comment-1.png" alt="author"></div>
+                                        <div class="author-info">
+                                            <h3>Eredrik Johanson <span>Financial .INC</span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="testi-item">
+                                    <div class="quote-icon"><i class="las la-quote-right"></i></div>
+                                    <p>Good to have transportation available in places and times it is otherwise hard to find, but the app has always been a bit difficult to use especially how it works or doesnt with large font phone settings.</p>
+                                    <div class="testi-author">
+                                        <div class="author-thumb"><img src="assets/img/comment-1.png" alt="author"></div>
+                                        <div class="author-info">
+                                            <h3>Eredrik Johanson <span>Financial .INC</span></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div><!-- Carousel Dots -->
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="feature-wrap">
+                    <div class="section-heading mb-30 wow fade-in-right" data-wow-delay="200ms">
+                        <h4 class="white"><span></span>Why Choose Us!</h4>
+                        <h2 class="white">Why Ride with Ridek?</h2>
+                        <p class="white">We successfully cope with tasks of varying complexity, provide long-term
+                            guarantees and regularly master technologies.</p>
+                    </div>
+                    <!--/.section-heading-->
+                    <ul class="ridek-features">
+                        <li class="wow fade-in-right" data-wow-delay="300ms">
+                            <div class="feature-icon">
+                                <i class="las la-gem"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Safe Guarantee</h3>
+                                <p>We successfully cope with tasks of <br> varying complexity!</p>
+                            </div>
+                        </li>
+                        <li class="wow fade-in-right" data-wow-delay="400ms">
+                            <div class="feature-icon">
+                                <i class="las la-taxi"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Fast Pickups</h3>
+                                <p>We successfully cope with tasks of <br> varying complexity!</p>
+                            </div>
+                        </li>
+                        <li class="wow fade-in-right" data-wow-delay="500ms">
+                            <div class="feature-icon">
+                                <i class="las la-tachometer-alt"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Quick Ride</h3>
+                                <p>We successfully cope with tasks of <br> varying complexity!</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<%-include('../pages/footer')%>
+
+<%-include('../pages/scripts')%>
+
+<script>
+    let data;
+    let submitForm = () => {
+        $("#driver_information_form").validate();
+        if ($("#driver_information_form").valid()) {
+            let ele = document.getElementById("driver_information_form").elements;
+            let fd = new FormData();
+            for (let i = 0; i < ele.length; i++) {
+                if (ele[i].type !== "button") {
+                    if (ele[i].type === "file")
+                        fd.append(ele[i].name, ele[i].files[0])
+
+                    else
+                        fd.append(ele[i].name, ele[i].value)
+                }
+            }
+            fetch("/Driver_form", {
+                method: "POST", body: fd
+            }).then(res => res.json())
+                .then(res => {
+                    console.log(res)
+                    if (res.error === true) {
+                        swal.fire({
+                            icon: "error",
+                            title: res.message,
+                        })
+                    } else {
+                        // document.getElementById("driver_information_form").reset();
+                        swal.fire({
+                            icon: "success",
+                            title: res.message,
+                            timer: 1500
+                        })
+
+
+                    }
+                }).catch((e)=>{
+                console.log(e)
+            })
+        }
+    }
+</script>
+
+
+
+</body>
+</html>

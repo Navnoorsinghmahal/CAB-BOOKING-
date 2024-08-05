@@ -51,7 +51,7 @@ This repository contains the source code for a Cab Booking System. It includes b
 
 1. **Start the server:**
     ```sh
-    npm start
+    npm run dev
     ```
 
 2. **Access the application:**
